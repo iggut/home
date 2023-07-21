@@ -5,6 +5,11 @@
   ...
 }:
 lib.mkIf config.main.user.enable {
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "vscode"
+    ];
+
   home-manager.users.${config.main.user.username} = {
     imports = [
       ./vscode.nix
