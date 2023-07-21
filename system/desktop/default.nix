@@ -8,7 +8,7 @@
   imports = [
     ./home-main.nix
     ./home-work.nix
-    ../../programs/vscode.nix
+    ../programs/vscode.nix
   ]; # Setup home manager
 
   # Set your time zone
