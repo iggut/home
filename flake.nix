@@ -54,6 +54,7 @@
             nixpkgs.config.permittedInsecurePackages = [
               "openssl-1.1.1u"
             ];
+            nixpkgs.config.allowUnfree = true;
           }
           nur.nixosModules.nur
           nix-index-database.nixosModules.nix-index
