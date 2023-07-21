@@ -50,11 +50,6 @@
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [
-          #nixos-hardware.nixosModules.common-cpu-intel
-          #nixos-hardware.nixosModules.common-pc
-          #nixos-hardware.nixosModules.common-pc-ssd
-          #disko.nixosModules.disko
-          #(import ./disko-config.nix {})
           {
             nixpkgs.config.permittedInsecurePackages = [
               "openssl-1.1.1u"
@@ -73,7 +68,6 @@
             programs.hyprland.xwayland.enable = true;
           }
           ./configuration.nix
-          ./system/programs/vscode.nix
         ];
       };
     };
