@@ -14,7 +14,7 @@ lib.mkIf config.nvidia.enable {
   environment.systemPackages = [pkgs.nvtop-nvidia]; # Monitoring tool for nvidia GPUs
 
   #Hyprland
-  home-manager = {
+  environment = {
     sessionVariables = {
       #EDITOR = "code";
       #BROWSER = "brave";
