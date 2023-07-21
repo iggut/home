@@ -42,6 +42,7 @@
     nur,
     disko,
     nixos-hardware,
+    nix-vscode-extensions,
     pipewire-screenaudio,
   } @ inputs: {
     nixosConfigurations = {
