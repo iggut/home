@@ -11,7 +11,7 @@ lib.mkIf config.nvidia.enable {
 
   virtualisation.docker.enableNvidia = true; # Enable nvidia gpu acceleration for docker
 
-  environment.systemPackages = [pkgs.nvtop-nvidia pkgs.nvidia-settings pkgs.nvidia-x11]; # Monitoring tool for nvidia GPUs
+  environment.systemPackages = [pkgs.nvtop-nvidia nvidia-settings nvidia-x11]; # Monitoring tool for nvidia GPUs
 
   # Set nvidia gpu power limit
   systemd.services.nv-power-limit = lib.mkIf config.nvidia.power-limit.enable {
