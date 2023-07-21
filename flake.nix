@@ -62,7 +62,7 @@
           nur.nixosModules.nur
           nix-index-database.nixosModules.nix-index
           {
-            environment.systemPackages = [alejandra.defaultPackage.${system}];
+            environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
           }
           home-manager.nixosModules.home-manager
           hyprland.nixosModules.default
