@@ -36,7 +36,10 @@
     };
   };
 
-  nixpkgs.config = {
-    allowUnfree = true; # Allow proprietary packages
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = _: true;
+    };
   };
 }
