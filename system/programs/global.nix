@@ -18,7 +18,7 @@
   '';
   vpn-exclude = pkgs.writeShellScriptBin "vpn-exclude" (builtins.readFile ../scripts/create-ns.sh);
 in {
-  boot.kernelPackages = pkgs.linuxPackages_6_3;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   environment.systemPackages = with pkgs; [
     (callPackage ./self-built/apx.nix {}) # Package manager using distrobox
     (callPackage ./self-built/webcord {}) # An open source discord client
