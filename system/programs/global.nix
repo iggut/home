@@ -123,8 +123,6 @@ in {
 
       interactiveShellInit = "source ~/.config/zsh/zsh-theme.zsh\nunsetopt PROMPT_SP"; # Commands to run on zsh shell initialization
     };
-
-    gamemode.enable = true;
   };
 
   services = {
