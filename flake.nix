@@ -33,6 +33,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           disko.nixosModules.disko
+          (import ./disko-config.nix {})
           {
             nixpkgs.config.permittedInsecurePackages = [
               "openssl-1.1.1u"
