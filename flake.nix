@@ -15,10 +15,27 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    alejandra = {
+      url = "github:kamadorueda/alejandra/3.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
+    alejandra,
+    nix-index-database,
     nixpkgs,
     hyprland,
     home-manager,
@@ -43,6 +60,10 @@
             ];
           }
           nur.nixosModules.nur
+          nix-index-database.nixosModules.nix-index
+          {
+            environment.systemPackages = [alejandra.defaultPackage.${system}];
+          }
           home-manager.nixosModules.home-manager
           hyprland.nixosModules.default
           {

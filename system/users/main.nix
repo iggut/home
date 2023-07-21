@@ -24,6 +24,7 @@ lib.mkIf config.main.user.enable {
       "steam"
       "steam-run"
       "steam-original"
+      "vscode"
     ];
 
   home-manager.users.${config.main.user.username}.home = {

@@ -4,6 +4,7 @@
     ./global.nix
     # My Progs+ settings
     ./game.nix
+    ./vscode.nix
     # Packages installed for main user
     ./main.nix
     # Packages installed for work user
