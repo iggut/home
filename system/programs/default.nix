@@ -1,8 +1,5 @@
 {config, ...}: {
   imports = [
-    import
-    <nixpkgs>
-    {config = {allowBroken = true;};}
     # Packages installed for all users
     ./global.nix
     # My Progs+ settings
@@ -42,6 +39,7 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
+      allowBroken = true;
       allowUnfreePredicate = _: true;
     };
   };
