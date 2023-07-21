@@ -78,9 +78,6 @@ lib.mkIf config.main.user.enable {
 
         initExtra = ''eval "$(direnv hook zsh)"'';
       };
-      command-not-found.enable = false;
-
-      nix-index.enableZshIntegration = true;
 
       # Install gnome extensions using firefox
       firefox.enableGnomeExtensions = true;

@@ -71,6 +71,10 @@
 
   security.sudo.extraConfig = "Defaults pwfeedback"; # Show asterisks when typing sudo password
 
+  programs.command-not-found.enable = false;
+
+  programs.nix-index.enableZshIntegration = true;
+
   environment = {
     # Packages to install for all window manager/desktop environments
     systemPackages = with pkgs; [
