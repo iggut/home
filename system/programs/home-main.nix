@@ -78,7 +78,7 @@ lib.mkIf config.main.user.enable {
 
         initExtra = ''eval "$(direnv hook zsh)"'';
       };
-      command-not-found.enable = true;
+      command-not-found.enable = false;
 
       nix-index.enableZshIntegration = true;
 
