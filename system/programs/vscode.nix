@@ -4,33 +4,33 @@
   lib,
   pkgs,
   ...
-}:{
+}: {
+  environment.systemPackages = with pkgs; [vscode];
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = true;
-    extensions = with pkgs.vscode-extensions;
-      [
-        bbenoist.nix
-        catppuccin.catppuccin-vsc
-        dbaeumer.vscode-eslint
-        eamodio.gitlens
-        esbenp.prettier-vscode
-        github.copilot
-        golang.go
-        kamadorueda.alejandra
-        mkhl.direnv
-        ms-python.vscode-pylance
-        ms-vscode.cpptools
-        naumovs.color-highlight
-        oderwat.indent-rainbow
-        pkief.material-product-icons
-        pkief.material-icon-theme
-        oderwat.indent-rainbow
-        sumneko.lua
-        usernamehw.errorlens
-        vadimcn.vscode-lldb
-        xaver.clang-format
-      ];
+    extensions = with pkgs.vscode-extensions; [
+      bbenoist.nix
+      catppuccin.catppuccin-vsc
+      dbaeumer.vscode-eslint
+      eamodio.gitlens
+      esbenp.prettier-vscode
+      github.copilot
+      golang.go
+      kamadorueda.alejandra
+      mkhl.direnv
+      ms-python.vscode-pylance
+      ms-vscode.cpptools
+      naumovs.color-highlight
+      oderwat.indent-rainbow
+      pkief.material-product-icons
+      pkief.material-icon-theme
+      oderwat.indent-rainbow
+      sumneko.lua
+      usernamehw.errorlens
+      vadimcn.vscode-lldb
+      xaver.clang-format
+    ];
 
     userSettings = {
       breadcrumbs.enabled = false;
