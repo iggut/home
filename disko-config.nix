@@ -20,7 +20,7 @@ in {
           format = "gpt";
           partitions = [
             {
-              name = "ESP";
+              name = "boot";
               start = "0%";
               end = "1024MiB";
               bootable = true;

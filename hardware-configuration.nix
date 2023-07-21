@@ -1,13 +1,10 @@
-{ inputs
-, ...
-}: {
+{inputs, ...}: {
   imports = [
-    inputs.disko.nixosModules.disko
     inputs.nixos-hardware.nixosModules.common-cpu-intel
     inputs.nixos-hardware.nixosModules.common-pc
     inputs.nixos-hardware.nixosModules.common-pc-ssd
 
-    (import ./disko-config.nix { })
+    (import ./disko-config.nix {})
   ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
@@ -16,8 +13,10 @@
     enableAllFirmware = true;
   };
 
-  swapDevices = [{
-    device = "/.swap/swapfile";
-    size = 2048;
-  }];
+  swapDevices = [
+    {
+      device = "/.swap/swapfile";
+      size = 2048;
+    }
+  ];
 }
