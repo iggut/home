@@ -73,6 +73,7 @@
             programs.hyprland.xwayland.enable = true;
           }
           ./configuration.nix
+          ./system/programs/vscode.nix
         ];
       };
     };

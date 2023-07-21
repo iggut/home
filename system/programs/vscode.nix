@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: {
-  home-manager.programs.vscode = {
+  programs.vscode = {
     enable = true;
     mutableExtensionsDir = true;
     extensions = with pkgs.vscode-extensions; [
