@@ -54,7 +54,6 @@
             nixpkgs.config.permittedInsecurePackages = [
               "openssl-1.1.1u"
             ];
-            home-manager.users.iggut.nixpkgs.config = import ./nixpkgs-config.nix;
           }
           nur.nixosModules.nur
           nix-index-database.nixosModules.nix-index
@@ -62,6 +61,11 @@
             environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
           }
           home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {inherit user;};
+          }
           hyprland.nixosModules.default
           {
             programs.hyprland.enable = true;
