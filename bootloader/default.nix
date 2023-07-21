@@ -1,24 +1,43 @@
-{ pkgs, config, ... }:
-
 {
-	boot = {
-		loader = {
-			# Allows discovery of UEFI disks
-			efi = {
-				canTouchEfiVariables = true;
-				efiSysMountPoint = config.efi-mount-path;
-			};
+  pkgs,
+  config,
+  ...
+}: {
+  boot = {
+    initrd = {
+      availableKernelModules = [
+        "ahci"
+        "nvme"
+        "sd_mod"
+        "usb_storage"
+        "usbhid"
+        "xhci_pci"
+      ];
+      kernelModules = [];
+    };
 
-			# Use systemd boot instead of grub
-			systemd-boot = {
-				enable = true;
-				configurationLimit = 10;
-				consoleMode = "max"; # Select the highest resolution for the bootloader
-			};
+    kernelModules = [
+      "kvm_intel"
+      "vhost_vsock"
+    ];
 
-			timeout = 1; # Boot default entry after 1 second
-		};
+    loader = {
+      # Allows discovery of UEFI disks
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = config.efi-mount-path;
+      };
 
-		plymouth.enable = config.boot.animation.enable;
-	};
+      # Use systemd boot instead of grub
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 10;
+        consoleMode = "max"; # Select the highest resolution for the bootloader
+      };
+
+      timeout = 1; # Boot default entry after 1 second
+    };
+
+    plymouth.enable = config.boot.animation.enable;
+  };
 }
