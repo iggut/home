@@ -2,9 +2,22 @@
   config,
   pkgs,
   lib,
+  inputs,
+  user,
   ...
 }:
 lib.mkIf config.nvidia.enable {
+  #Nvidia
+  #Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  # NVIDIA drivers are unfree.
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "nvidia-x11"
+      "nvidia-settings"
+    ];
+
   services.xserver.videoDrivers = ["nvidia"]; # Install the nvidia drivers
 
   hardware.nvidia.modesetting.enable = true; # Required for wayland

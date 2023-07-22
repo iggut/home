@@ -39,8 +39,6 @@ in {
     feh # Minimal image viewer
     gcc # C++ compiler
     gimp # Image editor
-    nvidia-x11
-    nvidia-settings
     _1password
     _1password-cli
     git # Distributed version control system
@@ -88,6 +86,16 @@ in {
   users.defaultUserShell = pkgs.zsh; # Use ZSH shell for all users
 
   programs = {
+    _1password = {
+      enable = true;
+    };
+
+    _1password-gui = {
+      enable = true;
+
+      polkitPolicyOwners = ["iggut" "root"];
+    };
+
     zsh = {
       enable = true;
       # Enable oh my zsh and it's plugins
