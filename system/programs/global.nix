@@ -39,6 +39,11 @@ in {
     feh # Minimal image viewer
     gcc # C++ compiler
     gimp # Image editor
+    nvidia-persistenced
+    nvidia-x11
+    nvidia-settings
+    _1password
+    _1password-cli
     git # Distributed version control system
     gping # ping with a graph
     helvum # Pipewire patchbay
