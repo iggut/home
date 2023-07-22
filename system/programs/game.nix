@@ -13,7 +13,6 @@
     minetest
     osu-lazer-bin
     protonup-qt
-    beautyline-icons
     fastfetch
     ananicy-cpp-rules
     input-leap_git
