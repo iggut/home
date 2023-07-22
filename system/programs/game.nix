@@ -3,6 +3,7 @@
   pkgs,
   lib,
   inputs,
+  chaotic,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -11,12 +12,12 @@
     protonup-qt
     lutris
     ###########
-    #ananicy-cpp
-    #ananicy-cpp-rules
-    #appmenu-gtk3-module
-    #droid-sans-mono-nerdfont
-    #fastfetch
-    #input-leap_git
+    ananicy-cpp
+    ananicy-cpp-rules
+    appmenu-gtk3-module
+    droid-sans-mono-nerdfont
+    fastfetch
+    input-leap_git
     #yuzu-early-access_git
   ];
 
@@ -34,7 +35,7 @@
   #Enable Gamescope
   programs.gamescope = {
     enable = true;
-    package = pkgs.gamescope;
+    package = pkgs.gamescope_git;
     capSysNice = true;
     #args = ["--prefer-vk-device 10de:2206"];
     #env = {

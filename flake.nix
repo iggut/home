@@ -1,6 +1,7 @@
 {
   inputs = {
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
@@ -38,6 +39,7 @@
     nix-index-database,
     nixpkgs,
     hyprland,
+    chaotic,
     home-manager,
     nur,
     disko,

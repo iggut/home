@@ -53,6 +53,8 @@ in {
     nix-gc # Garbage collect old nix generations
     nodejs # Node package manager
     ntfs3g # Support NTFS drives
+    nwg-drawer
+    nwg-dock-hyprland
     obs-studio # Recording/Livestream
     onlyoffice-bin # Microsoft Office alternative for Linux
     p7zip # 7zip
