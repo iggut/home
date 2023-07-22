@@ -58,6 +58,7 @@
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [
+          chaotic.nixosModules.default # OUR DEFAULT MODULE
           {
             nixpkgs.config.permittedInsecurePackages = [
               "openssl-1.1.1u"
