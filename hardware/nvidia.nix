@@ -16,7 +16,7 @@ lib.mkIf config.nvidia.enable {
   #Hyprland
   environment = {
     sessionVariables = {
-      #EDITOR = "code";
+      EDITOR = "code";
       #BROWSER = "brave";
       TERMINAL = "kitty";
       #LAUNCHER = "nwg-drawer";
@@ -32,8 +32,8 @@ lib.mkIf config.nvidia.enable {
 
       WLR_NO_HARDWARE_CURSORS = "1"; # if no cursor,uncomment this line
       #WLR_RENDERER_ALLOW_SOFTWARE = "1";
-      # GBM_BACKEND = "nvidia-drm";
-      #CLUTTER_BACKEND = "wayland";
+      GBM_BACKEND = "nvidia-drm";
+      CLUTTER_BACKEND = "wayland";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       LIBVA_DRIVER_NAME = "nvidia";
       WLR_RENDERER = "vulkan";
