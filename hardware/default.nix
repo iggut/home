@@ -34,6 +34,7 @@ in {
         nvidia-vaapi-driver
         vaapiVdpau
         libvdpau-va-gl
+        egl-wayland
       ];
     };
     opentabletdriver = {
