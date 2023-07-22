@@ -4,6 +4,7 @@
     ./global.nix
     # My Progs+ settings
     ./game.nix
+    ./yubikey.nix
     # Packages installed for main user
     ./main.nix
     # Packages installed for work user

@@ -22,7 +22,7 @@
   services = {
     xserver = {
       enable = true; # Enable the X11 windowing system
-
+      windowManager.openbox.enable = true;
       displayManager = {
         gdm = {
           enable = true;
@@ -85,6 +85,11 @@
       pitivi # Video editor
       tela-icon-theme # Icon theme
     ];
+    # Move ~/.Xauthority out of $HOME (setting XAUTHORITY early isn't enough)
+    extraInit = ''
+      export XAUTHORITY=/tmp/Xauthority
+      [ -e ~/.Xauthority ] && mv -f ~/.Xauthority "$XAUTHORITY"
+    '';
   };
 
   fonts.fonts = with pkgs; [
