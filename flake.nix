@@ -12,12 +12,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # The Chaotic toolbox
-    src-chaotic-toolbox = {
-      flake = false;
-      url = "github:chaotic-aur/toolbox";
-    };
-
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
