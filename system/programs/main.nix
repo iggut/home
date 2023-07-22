@@ -17,8 +17,7 @@ lib.mkIf config.main.user.enable {
     papermc # Minecraft server
     pcsx2 # PS2 Emulator
     ppsspp # PSP Emulator
-    nwg-dock-hyprland
-    nwg-drawer
+    nwg-dock
     prismlauncher # Minecraft launcher
     protontricks # Winetricks for proton prefixes
     rpcs3 # PS3 Emulator
