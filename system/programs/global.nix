@@ -6,6 +6,17 @@
   chaotic,
   ...
 }: let
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "nvidia-persistenced"
+      "nvidia-x11"
+      "nvidia-settings"
+      "1password"
+      "1password-cli"
+      "steam"
+      "steam-run"
+      "steam-original"
+    ];
   trim-generations = pkgs.writeShellScriptBin "trim-generations" (builtins.readFile ../scripts/trim-generations.sh);
   nix-gc = pkgs.writeShellScriptBin "nix-gc" ''
     gens=${config.gc.generations} ;
