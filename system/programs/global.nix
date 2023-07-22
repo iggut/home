@@ -3,6 +3,7 @@
   pkgs,
   config,
   inputs,
+  lib,
   chaotic,
   ...
 }: let
