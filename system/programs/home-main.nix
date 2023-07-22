@@ -17,6 +17,16 @@ lib.mkIf config.main.user.enable {
         userEmail = "${config.main.user.github.email}";
       };
 
+      _1password = {
+        enable = true;
+      };
+
+      _1password-gui = {
+        enable = true;
+
+        polkitPolicyOwners = ["iggut" "root"];
+      };
+
       kitty = {
         enable = true;
         settings = {
