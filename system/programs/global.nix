@@ -84,6 +84,15 @@ in {
   users.defaultUserShell = pkgs.zsh; # Use ZSH shell for all users
 
   programs = {
+    _1password = {
+      enable = true;
+    };
+
+    _1password-gui = {
+      enable = true;
+
+      polkitPolicyOwners = ["iggut" "root"];
+    };
     zsh = {
       enable = true;
       # Enable oh my zsh and it's plugins
