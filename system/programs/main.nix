@@ -25,7 +25,6 @@ lib.mkIf config.main.user.enable {
     steam # Gaming platform
     steamtinkerlaunch # General tweaks for games
     stremio # Straming platform
-    sunshine # Remote gaming
     tailscale # VPN with P2P support
     yuzu-early-access # Nintendo Switch emulator
   ];
@@ -38,13 +37,13 @@ lib.mkIf config.main.user.enable {
     };
   };
 
-  services.udev.packages = [
-    (pkgs.writeTextFile {
-      name = "sunshine_udev";
-      text = ''
-        KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"
-      '';
-      destination = "/etc/udev/rules.d/85-sunshine.rules";
-    }) # Needed for sunshine input to work
-  ];
+  #services.udev.packages = [
+  #  (pkgs.writeTextFile {
+  #    name = "sunshine_udev";
+  #    text = ''
+  #      KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"
+  #    '';
+  #    destination = "/etc/udev/rules.d/85-sunshine.rules";
+  #  }) # Needed for sunshine input to work
+  #];
 }
