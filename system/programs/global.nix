@@ -3,6 +3,7 @@
   pkgs,
   config,
   inputs,
+  chaotic,
   ...
 }: let
   trim-generations = pkgs.writeShellScriptBin "trim-generations" (builtins.readFile ../scripts/trim-generations.sh);
