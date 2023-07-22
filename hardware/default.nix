@@ -13,20 +13,31 @@
   '';
 in {
   hardware = {
+    nvidia = {
+      nvidiaPersistenced = true;
+      powerManagement.enable = true;
+      # Modesetting is needed for most wayland compositors
+      modesetting.enable = true;
+      # Use the open source version of the kernel module
+      # Only available on driver 515.43.04+
+      open = true;
+      # Enable the nvidia settings menu
+      nvidiaSettings = false;
+      # Optionally, you may need to select the appropriate driver version for your specific GPU.
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
     opengl = {
       enable = true;
-      driSupport32Bit = true; # Support Direct Rendering for 32-bit applications (such as Wine) on 64-bit systems
+      extraPackages = with pkgs; [
+        nvidia-vaapi-driver
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
     };
-
-    nvidia = lib.mkIf (config.nvidia.enable && config.nvidia.patch.enable) {
-      package = config.nur.repos.arc.packages.nvidia-patch.override {
-        nvidia_x11 = config.boot.kernelPackages.nvidiaPackages.stable;
-      }; # Patch the driver for nvfbc
+    opentabletdriver = {
+      enable = true;
+      daemon.enable = true;
     };
-
-    xpadneo.enable = true; # Enable XBOX Gamepad bluetooth driver
-    bluetooth.enable = true;
-    uinput.enable = true; # Enable uinput support
   };
 
   environment.systemPackages = lib.mkIf (config.laptop.enable && config.nvidia.enable) [nvidia-offload]; # Use nvidia-offload to launch programs using the nvidia GPU
