@@ -28,6 +28,8 @@ in {
     };
     opengl = {
       enable = true;
+      driSupport32Bit = true;
+      driSupport = true; # Support Direct Rendering for 32-bit applications (such as Wine) on 64-bit systems
       extraPackages = with pkgs; [
         nvidia-vaapi-driver
         vaapiVdpau
