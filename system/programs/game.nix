@@ -43,33 +43,6 @@
   # improvement for games using lots of mmaps (same as steam deck)
   boot.kernel.sysctl = {"vm.max_map_count" = 2147483642;};
 
-  ### Chaotic-LUG ###
-  chaotic.linux_hdr.specialisation.enable = false;
-  chaotic.appmenu-gtk3-module.enable = true;
-  # Unstable gamescope from Chaotic-Nyx
-  #chaotic.gamescope = {
-  #  enable = true;
-  #  package = pkgs.gamescope_git;
-  #  args = ["--rt" "--prefer-vk-device 1002:73ff"];
-  #  env = {
-  #    "__GLX_VENDOR_LIBRARY_NAME" = "amd";
-  #    "DRI_PRIME" = "1";
-  #    "MESA_VK_DEVICE_SELECT" = "pci:1002:73ff";
-  #    "__VK_LAYER_MESA_OVERLAY_CONFIG" = "ld.so.preload";
-  #    "DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1" = "1";
-  #  };
-  #  session = {
-  #    enable = true;
-  #    args = ["--rt"];
-  #    env = {
-  #      "__GLX_VENDOR_LIBRARY_NAME" = "amd";
-  #      "DRI_PRIME" = "1";
-  #      "MESA_VK_DEVICE_SELECT" = "pci:1002:73ff";
-  #      "__VK_LAYER_MESA_OVERLAY_CONFIG" = "ld.so.preload";
-  #      "DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1" = "1";
-  #    };
-  #  };
-  #};
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
@@ -79,13 +52,11 @@
     enable = true;
     package = pkgs.gamescope_git;
     capSysNice = true;
-    args = ["--prefer-vk-device 1002:73ff"];
+    args = ["--prefer-vk-device 10de:2482"];
     env = {
-      "__GLX_VENDOR_LIBRARY_NAME" = "amd";
+      "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
       "DRI_PRIME" = "1";
-      "MESA_VK_DEVICE_SELECT" = "pci:1002:73ff";
-      "__VK_LAYER_MESA_OVERLAY_CONFIG" = "ld.so.preload";
-      "DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1" = "1";
+      "MESA_VK_DEVICE_SELECT" = "pci:10de:2482";
     };
   };
   #chaotic.steam.extraCompatPackages = with pkgs; [luxtorpeda proton-ge-custom];
