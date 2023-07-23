@@ -211,9 +211,8 @@ lib.mkIf config.main.user.enable {
       # Add user.js
       ".mozilla/firefox/privacy/user.js" = {
         source =
-          if (config.firefox.privacy.enable)
-          then "${(pkgs.callPackage ../programs/self-built/arkenfox-userjs.nix {})}/user.js"
-          else ../configs/firefox/user.js;
+          #"${(pkgs.callPackage ../programs/self-built/arkenfox-userjs.nix {})}/user.js"
+          "../configs/firefox/user.js";
         recursive = true;
       };
 
