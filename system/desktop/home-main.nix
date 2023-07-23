@@ -29,11 +29,11 @@ lib.mkIf config.main.user.enable {
     };
 
     xdg = {
+      systemDirs.data = [
+        "${config.main.user.username}/.nix-profile/share"
+        "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}" # REF: <https://github.com/NixOS/nixpkgs/issues/72282#issuecomment-549651957>
+      ];
       desktopEntries = {
-        systemDirs.data = [
-          "${config.main.user.username}/.nix-profile/share"
-          "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}" # REF: <https://github.com/NixOS/nixpkgs/issues/72282#issuecomment-549651957>
-        ];
         discord = {
           name = "Discord";
           exec = "discord --enable-features=UseOzonePlatform --ozone-platform=wayland";
