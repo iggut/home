@@ -123,18 +123,45 @@ lib.mkIf config.main.user.enable {
         recursive = true;
       };
 
-      # Import firefox gnome theme userChrome.css or disable WebRTC indicator
+      # Import firefox gnome theme userChrome.css
       ".mozilla/firefox/privacy/chrome/userChrome.css" = {
-        text =
-          if config.firefox.gnome-theme.enable
-          then ''@import "firefox-gnome-theme/userChrome.css"''
-          else ''#webrtcIndicator { display: none }'';
+        source = ../configs/firefox/userChrome.css;
         recursive = true;
       };
 
       # Import firefox gnome theme userContent.css
-      ".mozilla/firefox/privacy/chrome/userContent.css" = lib.mkIf config.firefox.gnome-theme.enable {
-        text = ''@import "firefox-gnome-theme/userContent.css"'';
+      ".mozilla/firefox/privacy/chrome/userContent.css" = {
+        source = ../configs/firefox/userContent.css;
+        recursive = true;
+      };
+
+      # Import firefox gnome theme files
+      ".mozilla/firefox/privacy/chrome/cleaner_extensions_menu.css" = {
+        source = ../configs/firefox/cleaner_extensions_menu.css;
+        recursive = true;
+      };
+      ".mozilla/firefox/privacy/chrome/firefox_view_icon_change.css" = {
+        source = ../configs/firefox/firefox_view_icon_change.css;
+        recursive = true;
+      };
+      ".mozilla/firefox/privacy/chrome/spill-style-part1-file.css" = {
+        source = ../configs/firefox/spill-style-part1-file.css;
+        recursive = true;
+      };
+      ".mozilla/firefox/privacy/chrome/colored_soundplaying_tab.css" = {
+        source = ../configs/firefox/colored_soundplaying_tab.css;
+        recursive = true;
+      };
+      ".mozilla/firefox/privacy/chrome/popout_bookmarks_bar_on_hover.css" = {
+        source = ../configs/firefox/popout_bookmarks_bar_on_hover.css;
+        recursive = true;
+      };
+      ".mozilla/firefox/privacy/chrome/spill-style-part2-file.css" = {
+        source = ../configs/firefox/spill-style-part2-file.css;
+        recursive = true;
+      };
+      ".mozilla/firefox/privacy/chrome/image" = {
+        source = ../configs/firefox/image;
         recursive = true;
       };
 
