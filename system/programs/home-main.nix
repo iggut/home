@@ -203,19 +203,19 @@ lib.mkIf config.main.user.enable {
       };
 
       # Set firefox to privacy profile
-      #".mozilla/firefox/profiles.ini" = {
-      #  source = ../configs/firefox/profiles.ini;
-      #  recursive = true;
-      #};
+      ".mozilla/firefox/profiles.ini" = {
+        source = ../configs/firefox/profiles.ini;
+        recursive = true;
+      };
 
       # Add user.js
-      #".mozilla/firefox/privacy/user.js" = {
-      #  source =
-      #    if (config.firefox.privacy.enable)
-      #    then "${(pkgs.callPackage ../programs/self-built/arkenfox-userjs.nix {})}/user.js"
-      #    else ../configs/firefox/user.js;
-      #  recursive = true;
-      #};
+      ".mozilla/firefox/privacy/user.js" = {
+        source =
+          if (config.firefox.privacy.enable)
+          then "${(pkgs.callPackage ../programs/self-built/arkenfox-userjs.nix {})}/user.js"
+          else ../configs/firefox/user.js;
+        recursive = true;
+      };
 
       # Install firefox gnome theme
       #".mozilla/firefox/privacy/chrome/firefox-gnome-theme" = lib.mkIf config.firefox.gnome-theme.enable {
