@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  nur,
   ...
 }:
 lib.mkIf config.main.user.enable {
@@ -81,6 +82,28 @@ lib.mkIf config.main.user.enable {
 
       # Install gnome extensions using firefox
       firefox.enableGnomeExtensions = true;
+
+      firefox = {
+        enable = true;
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          ublock-origin
+          darkreader
+          bypass-paywalls-clean
+          df-youtube
+          enhanced-github
+          enhancer-for-youtube
+          gesturefy
+          istilldontcareaboutcookies
+          onepassword-password-manager
+          protondb-for-steam
+          reddit-enhancement-suite
+        ];
+        profiles.default = {
+          id = 0;
+          name = "Default";
+          isDefault = true;
+        };
+      };
     };
 
     home.file = {
@@ -118,10 +141,10 @@ lib.mkIf config.main.user.enable {
       };
 
       # Install firefox gnome theme
-      ".mozilla/firefox/privacy/chrome/firefox-gnome-theme" = lib.mkIf config.firefox.gnome-theme.enable {
-        source = pkgs.callPackage ../programs/self-built/firefox-gnome-theme.nix {};
-        recursive = true;
-      };
+      #".mozilla/firefox/privacy/chrome/firefox-gnome-theme" = lib.mkIf config.firefox.gnome-theme.enable {
+      #  source = pkgs.callPackage ../programs/self-built/firefox-gnome-theme.nix {};
+      #  recursive = true;
+      #};
 
       # Import firefox gnome theme userChrome.css
       ".mozilla/firefox/privacy/chrome/userChrome.css" = {

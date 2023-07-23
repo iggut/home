@@ -23,7 +23,7 @@ in {
   environment.systemPackages = with pkgs; [
     (callPackage ./self-built/apx.nix {}) # Package manager using distrobox
     (callPackage ./self-built/webcord {}) # An open source discord client
-    (firefox.override {extraNativeMessagingHosts = [inputs.pipewire-screenaudio.packages.${pkgs.system}.default];}) # Browser
+    (firefox-wayland.override {extraNativeMessagingHosts = [inputs.pipewire-screenaudio.packages.${pkgs.system}.default];}) # Browser
     (pkgs.wrapOBS {plugins = with pkgs.obs-studio-plugins; [obs-pipewire-audio-capture];}) # Pipewire audio plugin for OBS Studio
     android-tools # Tools for debugging android devices
     appimage-run # Appimage runner
