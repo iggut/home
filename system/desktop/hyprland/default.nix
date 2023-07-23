@@ -67,7 +67,6 @@
   };
 
   security.polkit.enable = lib.mkIf config.desktop-environment.hyprland.enable true;
-  services.gnome-keyring.enable = true;
 
   disabledModules = ["programs/hyprland.nix"]; # Needed for hyprland flake
 
