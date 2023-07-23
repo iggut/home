@@ -224,43 +224,43 @@ lib.mkIf config.main.user.enable {
       #};
 
       # Import firefox gnome theme userChrome.css
-      ".mozilla/firefox/privacy/chrome/userChrome.css" = {
+      ".mozilla/firefox/default/chrome/userChrome.css" = {
         source = ../configs/firefox/userChrome.css;
         recursive = true;
       };
 
       # Import firefox gnome theme userContent.css
-      ".mozilla/firefox/privacy/chrome/userContent.css" = {
+      ".mozilla/firefox/default/chrome/userContent.css" = {
         source = ../configs/firefox/userContent.css;
         recursive = true;
       };
 
       # Import firefox gnome theme files
-      ".mozilla/firefox/privacy/chrome/cleaner_extensions_menu.css" = {
+      ".mozilla/firefox/default/chrome/cleaner_extensions_menu.css" = {
         source = ../configs/firefox/cleaner_extensions_menu.css;
         recursive = true;
       };
-      ".mozilla/firefox/privacy/chrome/firefox_view_icon_change.css" = {
+      ".mozilla/firefox/default/chrome/firefox_view_icon_change.css" = {
         source = ../configs/firefox/firefox_view_icon_change.css;
         recursive = true;
       };
-      ".mozilla/firefox/privacy/chrome/spill-style-part1-file.css" = {
+      ".mozilla/firefox/default/chrome/spill-style-part1-file.css" = {
         source = ../configs/firefox/spill-style-part1-file.css;
         recursive = true;
       };
-      ".mozilla/firefox/privacy/chrome/colored_soundplaying_tab.css" = {
+      ".mozilla/firefox/default/chrome/colored_soundplaying_tab.css" = {
         source = ../configs/firefox/colored_soundplaying_tab.css;
         recursive = true;
       };
-      ".mozilla/firefox/privacy/chrome/popout_bookmarks_bar_on_hover.css" = {
+      ".mozilla/firefox/default/chrome/popout_bookmarks_bar_on_hover.css" = {
         source = ../configs/firefox/popout_bookmarks_bar_on_hover.css;
         recursive = true;
       };
-      ".mozilla/firefox/privacy/chrome/spill-style-part2-file.css" = {
+      ".mozilla/firefox/default/chrome/spill-style-part2-file.css" = {
         source = ../configs/firefox/spill-style-part2-file.css;
         recursive = true;
       };
-      ".mozilla/firefox/privacy/chrome/image" = {
+      ".mozilla/firefox/default/chrome/image" = {
         source = ../configs/firefox/image;
         recursive = true;
       };
