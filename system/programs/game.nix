@@ -56,7 +56,7 @@
     #  "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
     #  "DRI_PRIME" = "1";
     #  "MESA_VK_DEVICE_SELECT" = "pci:10de:2482";
-    };
+    #};
   };
   #chaotic.steam.extraCompatPackages = with pkgs; [luxtorpeda proton-ge-custom];
   # Chaotic cache
