@@ -210,9 +210,7 @@ lib.mkIf config.main.user.enable {
 
       # Add user.js
       ".mozilla/firefox/privacy/user.js" = {
-        source =
-          #"${(pkgs.callPackage ../programs/self-built/arkenfox-userjs.nix {})}/user.js"
-          "../configs/firefox/user.js";
+        source = ../configs/firefox/user.js;
         recursive = true;
       };
 
@@ -265,15 +263,15 @@ lib.mkIf config.main.user.enable {
       };
 
       # Create second firefox profile for element
-      #".mozilla/firefox/element/user.js" = {
-      #  source = "${(pkgs.callPackage ../programs/self-built/arkenfox-userjs.nix {})}/user.js";
-      #  recursive = true;
-      #};
+      ".mozilla/firefox/element/user.js" = {
+        source = "${(pkgs.callPackage ../programs/self-built/arkenfox-userjs.nix {})}/user.js";
+        recursive = true;
+      };
 
-      #".mozilla/firefox/element/chrome" = {
-      #  source = pkgs.callPackage ../programs/self-built/firefox-cascade.nix {};
-      #  recursive = true;
-      #};
+      ".mozilla/firefox/element/chrome" = {
+        source = pkgs.callPackage ../programs/self-built/firefox-cascade.nix {};
+        recursive = true;
+      };
 
       # Add noise suppression microphone
       ".config/pipewire/pipewire.conf.d/99-input-denoising.conf" = {
