@@ -89,6 +89,19 @@
 
       xdg = {userDirs = {enable = true;};};
       xdg.configFile."hypr/hyprland.conf".text = ''
+        # Basic functionalities
+        exec-once = gnome-keyring-daemon --start
+        exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
+        exec-once = dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland
+        exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+        exec-once = sleep 2 && waybar & sleep 2 && hyprctl reload & /etc/polkit-gnome & swaync & hyprpaper & /etc/kdeconnectd & hyprland-per-window-layout
+        # Tray applications
+        exec-once = kdeconnect-indicator & clipman clear --all & wl-paste -t text --watch clipman store & nm-applet --indicator
+        # Standard applications
+        exec-once = warp & corectrl & firefox & signal-desktop & nautilus -w & nautilus -w & firefox --no-remote -P Element --name element https://icedborn.github.io/element-web https://discord.com/app & steam
+        # Terminals/Task managers/IDEs
+        exec-once = kitty --class startup-nvchad tmux new -s nvchad nvim & kitty --class startup-kitty tmux new -s terminals \; split-window -v \; select-pane -U \; split-window -h \; select-pane -D & kitty --class startup-monitor tmux new -s task-managers btop \; split-window -v nvtop
+
         ### MONITORS ###
 
         # You have to change this based on your monitor
@@ -304,18 +317,6 @@
 
         # Remove initial focus from apps
         windowrulev2 = noinitialfocus, class:^(steam)$, title:^(notificationtoasts.*)$, floating:1
-
-        # Basic functionalities
-        exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
-        exec-once = dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland
-        exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-        exec-once = sleep 2 && waybar & sleep 2 && hyprctl reload & /etc/polkit-gnome & swaync & hyprpaper & /etc/kdeconnectd & hyprland-per-window-layout
-        # Tray applications
-        exec-once = kdeconnect-indicator & clipman clear --all & wl-paste -t text --watch clipman store & nm-applet --indicator
-        # Standard applications
-        exec-once = warp & corectrl & firefox & signal-desktop & nautilus -w & nautilus -w & firefox --no-remote -P Element --name element https://icedborn.github.io/element-web https://discord.com/app & steam
-        # Terminals/Task managers/IDEs
-        exec-once = kitty --class startup-nvchad tmux new -s nvchad nvim & kitty --class startup-kitty tmux new -s terminals \; split-window -v \; select-pane -U \; split-window -h \; select-pane -D & kitty --class startup-monitor tmux new -s task-managers btop \; split-window -v nvtop
       '';
     }
   ];
