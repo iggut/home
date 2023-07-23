@@ -18,13 +18,13 @@
     boot = {
       animation.enable = lib.mkOption {
         type = lib.types.bool;
-        default = false;
+        default = true;
       }; # Hides startup text and displays a circular loading icon
 
       autologin = {
         enable = lib.mkOption {
           type = lib.types.bool;
-          default = true;
+          default = false;
         };
 
         main.user.enable = lib.mkOption {
