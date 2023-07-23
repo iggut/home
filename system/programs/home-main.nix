@@ -93,10 +93,8 @@ lib.mkIf config.main.user.enable {
             istilldontcareaboutcookies
             enhanced-github
             onepassword-password-manager
-            df-youtube
             darkreader
             ublock-origin
-            youchoose-ai
           ];
           search = {
             default = "Google";
@@ -276,6 +274,16 @@ lib.mkIf config.main.user.enable {
       # Add noise suppression microphone
       ".config/pipewire/pipewire.conf.d/99-input-denoising.conf" = {
         source = ../configs/pipewire.conf;
+        recursive = true;
+      };
+
+      # NWG config files
+      ".local/share/nwg-dock-hyprland" = {
+        source = ../configs/nwg/nwg-dock-hyprland;
+        recursive = true;
+      };
+      ".local/share/nwg-drawer" = {
+        source = ../configs/nwg/nwg-drawer; #might need this: sudo ln -s ~/.local/share/nwg-drawer /usr/share
         recursive = true;
       };
 

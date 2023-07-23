@@ -98,6 +98,7 @@
         # Tray applications
         exec-once = kdeconnect-indicator & clipman clear --all & wl-paste -t text --watch clipman store & nm-applet --indicator
         # Standard applications
+        exec-once = nwg-dock-hyprland -d -c "nwg-drawer"
         exec-once = warp & corectrl & firefox & signal-desktop & nautilus -w & nautilus -w & firefox --no-remote -P Element --name element https://icedborn.github.io/element-web https://discord.com/app & steam
         # Terminals/Task managers/IDEs
         exec-once = kitty --class startup-nvchad tmux new -s nvchad nvim & kitty --class startup-kitty tmux new -s terminals \; split-window -v \; select-pane -U \; split-window -h \; select-pane -D & kitty --class startup-monitor tmux new -s task-managers btop \; split-window -v nvtop
