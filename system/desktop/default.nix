@@ -30,7 +30,6 @@
   services = {
     xserver = {
       enable = true; # Enable the X11 windowing system
-      windowManager.openbox.enable = true;
       displayManager = {
         gdm = {
           enable = true;

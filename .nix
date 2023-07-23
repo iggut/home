@@ -12,19 +12,19 @@
 
     mounts.enable = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = false;
     }; # Set to false if hardware/mounts.nix is not correctly configured
 
     boot = {
       animation.enable = lib.mkOption {
         type = lib.types.bool;
-        default = true;
+        default = false;
       }; # Hides startup text and displays a circular loading icon
 
       autologin = {
         enable = lib.mkOption {
           type = lib.types.bool;
-          default = false;
+          default = true;
         };
 
         main.user.enable = lib.mkOption {
@@ -51,7 +51,7 @@
 
         mounts.enable = lib.mkOption {
           type = lib.types.bool;
-          default = true;
+          default = false;
         }; # Mounted drives
       }; # Btrfs compression
     };

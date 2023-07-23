@@ -8,6 +8,7 @@
 }:
 lib.mkIf config.nvidia.enable {
   #Nvidia
+  services.xserver.videoDrivers = ["nvidia"];
   #Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -18,8 +19,6 @@ lib.mkIf config.nvidia.enable {
       "nvidia-settings"
     ];
 
-  services.xserver.videoDrivers = ["nvidia"]; # Install the nvidia drivers
-
   hardware.nvidia.modesetting.enable = true; # Required for wayland
 
   virtualisation.docker.enableNvidia = true; # Enable nvidia gpu acceleration for docker
@@ -28,16 +27,16 @@ lib.mkIf config.nvidia.enable {
   environment = {
     sessionVariables = {
       EDITOR = "code";
-      #BROWSER = "brave";
+      BROWSER = "firefox";
       TERMINAL = "kitty";
-      #LAUNCHER = "nwg-drawer";
+      LAUNCHER = "nwg-drawer";
 
       NIXOS_OZONE_WL = "1";
       __GL_GSYNC_ALLOWED = "0";
       __GL_VRR_ALLOWED = "0";
       _JAVA_AWT_WM_NONEREPARENTING = "1";
       DISABLE_QT5_COMPAT = "0";
-      GDK_BACKEND = "wayland,x11";
+      GDK_BACKEND = "wayland";
       ANKI_WAYLAND = "1";
       DIRENV_LOG_FORMAT = "";
       WLR_DRM_NO_ATOMIC = "1";
@@ -48,6 +47,7 @@ lib.mkIf config.nvidia.enable {
       WLR_RENDERER = "vulkan";
       WLR_NO_HARDWARE_CURSORS = "1";
       XDG_SESSION_TYPE = "wayland";
+      XDG_CURRENT_DESKTOP = "Hyprland";
       #SDL_VIDEODRIVER = "wayland";
     };
   };

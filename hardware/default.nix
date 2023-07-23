@@ -24,7 +24,7 @@ in {
       # Enable the nvidia settings menu
       nvidiaSettings = false;
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
     opengl = {
       enable = true;
@@ -42,6 +42,8 @@ in {
       daemon.enable = true;
     };
   };
+
+  services.acpid.enable = true;
 
   environment.systemPackages = lib.mkIf (config.laptop.enable && config.nvidia.enable) [nvidia-offload]; # Use nvidia-offload to launch programs using the nvidia GPU
 

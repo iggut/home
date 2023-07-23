@@ -13,6 +13,8 @@
     kdeconnect.enable = true; # Connect phone to PC
   };
 
+  xdg.portal.enable = true;
+
   environment = lib.mkIf config.desktop-environment.hyprland.enable {
     systemPackages = with pkgs; [
       (callPackage ../../programs/self-built/hyprland-per-window-layout.nix {})
