@@ -11,7 +11,6 @@
     ./work.nix
     # Home manager specific stuff
     ./home-main.nix
-    ./home-work.nix
   ];
 
   nix = {

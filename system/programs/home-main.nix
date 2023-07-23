@@ -2,7 +2,6 @@
   config,
   pkgs,
   lib,
-  nur,
   ...
 }:
 lib.mkIf config.main.user.enable {
@@ -80,28 +79,106 @@ lib.mkIf config.main.user.enable {
         initExtra = ''eval "$(direnv hook zsh)"'';
       };
 
-      # Install gnome extensions using firefox
-      firefox.enableGnomeExtensions = true;
-
       firefox = {
         enable = true;
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          ublock-origin
-          darkreader
-          bypass-paywalls-clean
-          df-youtube
-          enhanced-github
-          enhancer-for-youtube
-          gesturefy
-          istilldontcareaboutcookies
-          onepassword-password-manager
-          protondb-for-steam
-          reddit-enhancement-suite
-        ];
         profiles.default = {
           id = 0;
           name = "Default";
-          isDefault = true;
+          extensions = with config.nur.repos.rycee.firefox-addons; [
+            reddit-enhancement-suite
+            bypass-paywalls-clean
+            enhancer-for-youtube
+            gesturefy
+            protondb-for-steam
+            istilldontcareaboutcookies
+            enhanced-github
+            onepassword-password-manager
+            df-youtube
+            darkreader
+            ublock-origin
+            youchoose-ai
+          ];
+          search = {
+            default = "Google";
+            force = true;
+            engines = {
+              "Nix Packages" = {
+                urls = [
+                  {
+                    template = "https://search.nixos.org/packages";
+                    params = [
+                      {
+                        name = "type";
+                        value = "packages";
+                      }
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                definedAliases = ["@np"];
+              };
+
+              "NixOS Wiki" = {
+                urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
+                iconUpdateURL = "https://nixos.wiki/favicon.png";
+                updateInterval = 24 * 60 * 60 * 1000; # every day
+                definedAliases = ["@nw"];
+              };
+
+              "Bing".metaData.hidden = true;
+              "DuckDuckGo".metaData.hidden = true;
+              "Amazon.nl".metaData.hidden = true;
+              "eBay".metaData.hidden = true;
+              "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+            };
+          };
+          settings = {
+            # Browser settings go here
+            "browser.startup.homepage" = "";
+            # Enable HTTPS-Only Mode
+            "dom.security.https_only_mode" = true;
+            "dom.security.https_only_mode_ever_enabled" = true;
+            # Privacy settings
+            "privacy.donottrackheader.enabled" = true;
+            "privacy.trackingprotection.enabled" = true;
+            "privacy.trackingprotection.socialtracking.enabled" = true;
+            "privacy.partition.network_state.ocsp_cache" = true;
+            # Disable all sorts of telemetry
+            "browser.newtabpage.activity-stream.feeds.telemetry" = false;
+            "browser.newtabpage.activity-stream.telemetry" = false;
+            "browser.ping-centre.telemetry" = false;
+            "toolkit.telemetry.archive.enabled" = false;
+            "toolkit.telemetry.bhrPing.enabled" = false;
+            "toolkit.telemetry.enabled" = false;
+            "toolkit.telemetry.firstShutdownPing.enabled" = false;
+            "toolkit.telemetry.hybridContent.enabled" = false;
+            "toolkit.telemetry.newProfilePing.enabled" = false;
+            "toolkit.telemetry.reportingpolicy.firstRun" = false;
+            "toolkit.telemetry.shutdownPingSender.enabled" = false;
+            "toolkit.telemetry.unified" = false;
+            "toolkit.telemetry.updatePing.enabled" = false;
+
+            # As well as Firefox 'experiments'
+            "experiments.activeExperiment" = false;
+            "experiments.enabled" = false;
+            "experiments.supported" = false;
+            "network.allow-experiments" = false;
+            # Disable Pocket Integration
+            "browser.newtabpage.activity-stream.section.highlights.includePocket" =
+              false;
+            "extensions.pocket.enabled" = false;
+            "extensions.pocket.api" = "";
+            "extensions.pocket.oAuthConsumerKey" = "";
+            "extensions.pocket.showHome" = false;
+            "extensions.pocket.site" = "";
+            # Allow copy to clipboard
+            "dom.events.asyncClipboard.clipboardItem" = true;
+          };
         };
       };
     };

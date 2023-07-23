@@ -6,7 +6,6 @@
 }: {
   imports = [
     ./home-main.nix
-    ./home-work.nix
   ]; # Setup home manager for hyprland
 
   programs = lib.mkIf config.desktop-environment.hyprland.enable {
@@ -16,7 +15,7 @@
 
   environment = lib.mkIf config.desktop-environment.hyprland.enable {
     systemPackages = with pkgs; [
-      #(callPackage ../../programs/self-built/hyprland-per-window-layout.nix {})
+      (callPackage ../../programs/self-built/hyprland-per-window-layout.nix {})
       # Status bar
       (waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
@@ -24,6 +23,7 @@
           sed -i 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
         '';
       }))
+      firefox
       baobab # Disk usage analyser
       blueberry # Bluetooth manager
       clipman # Clipboard manager for wayland

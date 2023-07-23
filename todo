@@ -1,0 +1,22 @@
+      firefox = {
+        enable = true;
+
+        profiles.default = {
+          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+            ublock-origin
+            darkreader
+            bypass-paywalls-clean
+            df-youtube
+            enhanced-github
+            enhancer-for-youtube
+            gesturefy
+            istilldontcareaboutcookies
+            onepassword-password-manager
+            protondb-for-steam
+            reddit-enhancement-suite
+          ];
+          id = 0;
+          name = "Default";
+          isDefault = true;
+        };
+      };
