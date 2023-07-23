@@ -81,7 +81,7 @@ lib.mkIf config.main.user.enable {
 
       firefox = {
         enable = true;
-        profiles.default = {
+        profiles.privacy = {
           id = 0;
           name = "privacy";
           extensions = with config.nur.repos.rycee.firefox-addons; [
@@ -215,7 +215,7 @@ lib.mkIf config.main.user.enable {
       };
 
       # Install firefox gnome theme
-      #".mozilla/firefox/privacy/chrome/firefox-gnome-theme" = lib.mkIf config.firefox.gnome-theme.enable {
+      #".mozilla/firefox/privacy/chrome/firefox-gnome-theme" = {
       #  source = pkgs.callPackage ../programs/self-built/firefox-gnome-theme.nix {};
       #  recursive = true;
       #};
