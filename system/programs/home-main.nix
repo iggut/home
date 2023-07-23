@@ -215,10 +215,10 @@ lib.mkIf config.main.user.enable {
       };
 
       # Install firefox gnome theme
-      #".mozilla/firefox/privacy/chrome/firefox-gnome-theme" = {
-      #  source = pkgs.callPackage ../programs/self-built/firefox-gnome-theme.nix {};
-      #  recursive = true;
-      #};
+      ".mozilla/firefox/privacy/chrome/firefox-gnome-theme" = {
+        source = pkgs.callPackage ../programs/self-built/firefox-gnome-theme.nix {};
+        recursive = true;
+      };
 
       # Import firefox gnome theme userChrome.css
       ".mozilla/firefox/privacy/chrome/userChrome.css" = {
