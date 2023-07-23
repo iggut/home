@@ -18,6 +18,7 @@ lib.mkIf config.main.user.enable {
     pcsx2 # PS2 Emulator
     ppsspp # PSP Emulator
     nwg-dock
+    xfce.thunar # File manager
     prismlauncher # Minecraft launcher
     protontricks # Winetricks for proton prefixes
     rpcs3 # PS3 Emulator
@@ -27,6 +28,9 @@ lib.mkIf config.main.user.enable {
     stremio # Straming platform
     tailscale # VPN with P2P support
     yuzu-early-access # Nintendo Switch emulator
+    prusa-slicer # 3D printer slicer software for slicing 3D models into printable layers
+    inav-configurator # The iNav flight control system configuration tool
+    betaflight-configurator # The Betaflight flight control system configuration tool
   ];
 
   services = {
@@ -36,6 +40,8 @@ lib.mkIf config.main.user.enable {
       enableUdevRules = true;
     };
   };
+
+  programs.xfconf.enable = true;
 
   #services.udev.packages = [
   #  (pkgs.writeTextFile {

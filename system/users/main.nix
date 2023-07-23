@@ -24,6 +24,8 @@ lib.mkIf config.main.user.enable {
     ];
   };
 
+  services.dbus.enable = true;
+
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "nvidia-persistenced"

@@ -35,6 +35,7 @@
       gnome.gnome-disk-utility # Disks manager
       gnome.gnome-themes-extra # Adwaita GTK theme
       gnome.nautilus # File manager
+      gnome.gnome-keyring
       grim # Screenshot tool
       hyprpaper # Wallpaper daemon
       jc # JSON parser
@@ -66,6 +67,7 @@
   };
 
   security.polkit.enable = lib.mkIf config.desktop-environment.hyprland.enable true;
+  services.gnome-keyring.enable = true;
 
   disabledModules = ["programs/hyprland.nix"]; # Needed for hyprland flake
 
