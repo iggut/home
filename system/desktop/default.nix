@@ -96,8 +96,6 @@
     ];
   };
 
-  security.sudo.extraConfig = "Defaults pwfeedback"; # Show asterisks when typing sudo password
-
   programs.dconf.enable = true;
   programs.partition-manager.enable = true;
 
