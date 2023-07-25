@@ -5,7 +5,7 @@
 }: {
   imports = [
     # Auto-generated configuration by NixOS
-    ../../hardware-configuration.nix
+    ./hardware-configuration.nix
     # Custom configuration
     ../../.nix
     ../../bootloader
@@ -24,7 +24,7 @@
     ../../system/users
   ];
 
-  networking = {
+  config.networking = {
     hostName = "gs66";
   };
 
