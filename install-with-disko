@@ -36,7 +36,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
         --mode zap_create_mount \
         "./disko-config.nix"
 
-    sudo nixos-install --flake ".#gaminix"
+    sudo nixos-install --flake ".#gs66"
 
     # Rsync my nix-config to the target install
     mkdir -p "/mnt/home/iggut/nixos-config"

@@ -71,7 +71,7 @@
 
   networking = {
     networkmanager.enable = true;
-    hostName = "gaminix";
+    hostName = "gs66";
     firewall.enable = false;
   };
 

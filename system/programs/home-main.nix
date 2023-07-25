@@ -86,7 +86,7 @@ lib.mkIf config.main.user.enable {
           name = "privacy";
           extensions = with config.nur.repos.rycee.firefox-addons; [
             reddit-enhancement-suite
-            bypass-paywalls-clean
+            #bypass-paywalls-clean
             enhancer-for-youtube
             gesturefy
             protondb-for-steam
