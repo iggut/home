@@ -71,7 +71,6 @@
 
   networking = {
     networkmanager.enable = true;
-    hostName = "gs66";
     firewall.enable = false;
   };
 

@@ -75,7 +75,37 @@
             programs.hyprland.nvidiaPatches = true;
             programs.hyprland.xwayland.enable = true;
           }
-          ./configuration.nix
+          ./hosts/gs66/configuration.nix
+        ];
+      };
+      gaminix = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [
+          chaotic.nixosModules.default # OUR DEFAULT MODULE
+          {
+            nixpkgs.config.permittedInsecurePackages = [
+              "openssl-1.1.1u"
+            ];
+          }
+          nur.nixosModules.nur
+          nix-index-database.nixosModules.nix-index
+          {
+            environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
+          }
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {inherit inputs;};
+          }
+          hyprland.nixosModules.default
+          {
+            programs.hyprland.enable = true;
+            programs.hyprland.nvidiaPatches = true;
+            programs.hyprland.xwayland.enable = true;
+          }
+          ./hosts/gaminix/configuration.nix
         ];
       };
     };
