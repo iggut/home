@@ -9,6 +9,7 @@ lib.mkIf config.main.user.enable {
   users.users.${config.main.user.username}.packages = with pkgs; [
     bottles # Wine manager
     cemu # Wii U Emulator
+    cryptomator # Encrypt data - cloud
     duckstation # PS1 Emulator
     gamescope # Wayland microcompositor
     godot_4 # Game engine
@@ -19,6 +20,11 @@ lib.mkIf config.main.user.enable {
     ppsspp # PSP Emulator
     nwg-dock
     xfce.thunar # File manager
+    xfce.thunar-volman
+    xfce.xfconf
+    neofetch
+    usbutils
+    qbittorrent
     prismlauncher # Minecraft launcher
     protontricks # Winetricks for proton prefixes
     rpcs3 # PS3 Emulator

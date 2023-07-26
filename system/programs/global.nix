@@ -40,6 +40,7 @@ in {
     gcc # C++ compiler
     gimp # Image editor
     git # Distributed version control system
+    glxinfo # gpu tools
     gping # ping with a graph
     helvum # Pipewire patchbay
     jq # JSON parser

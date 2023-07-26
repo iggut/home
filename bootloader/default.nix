@@ -26,6 +26,8 @@
 
     blacklistedKernelModules = ["nouveau"];
 
+    supportedFilesystems = ["btrfs" "ntfs"];
+
     binfmt.emulatedSystems = ["aarch64-linux"];
 
     loader = {
