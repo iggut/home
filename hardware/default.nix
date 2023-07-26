@@ -27,15 +27,8 @@ in {
       package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
     opengl = {
-      enable = true;
-      driSupport32Bit = true;
-      driSupport = true; # Support Direct Rendering for 32-bit applications (such as Wine) on 64-bit systems
-      extraPackages = with pkgs; [
-        nvidia-vaapi-driver
-        vaapiVdpau
-        libvdpau-va-gl
-        egl-wayland
-      ];
+      extraPackages = with pkgs; [vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl];
+      extraPackages32 = with pkgs.pkgsi686Linux; [vaapiIntel libvdpau-va-gl vaapiVdpau];
     };
     opentabletdriver = {
       enable = true;

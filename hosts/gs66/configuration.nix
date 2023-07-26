@@ -14,6 +14,7 @@
     #../../hardware/amd/ryzen.nix
     ../../hardware/intel.nix
     ../../hardware/laptop.nix
+    ../../hardware/bluetooth.nix
     #../../hardware/mounts.nix # Disks to mount on startup
     ../../hardware/nvidia.nix
     ../../hardware/virtualisation.nix

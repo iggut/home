@@ -13,6 +13,7 @@
     #../../hardware/amd/radeon.nix
     #../../hardware/amd/ryzen.nix
     ../../hardware/intel.nix
+    ../../hardware/bluetooth.nix
     #../../hardware/laptop.nix
     #../../hardware/mounts.nix # Disks to mount on startup
     ../../hardware/nvidia.nix

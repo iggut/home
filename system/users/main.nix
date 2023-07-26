@@ -18,6 +18,8 @@ lib.mkIf config.main.user.enable {
       "audio"
       "disk"
       "networkmanager"
+      "plugdev"
+      "adbusers"
       "video"
       "docker"
       "media"

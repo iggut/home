@@ -14,7 +14,7 @@ lib.mkIf config.laptop.enable {
     WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
   };
 
-  #Enable Gamescope
+  #fix Gamescope glitchy graphics intel/nvidia
   programs.gamescope = {
     env = {
       "INTEL_DEBUG" = "noccs";
