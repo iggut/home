@@ -10,6 +10,7 @@ lib.mkIf config.main.user.enable {
       ./vscode.nix
     ];
     programs = {
+      home-manager.enable = true;
       git = {
         enable = true;
         # Git config

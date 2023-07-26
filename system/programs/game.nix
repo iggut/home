@@ -45,18 +45,14 @@
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
+    gamescopeSession.args = ["--prefer-vk-device 8086:9bc4"];
   };
   #Enable Gamescope
   programs.gamescope = {
     enable = true;
     package = pkgs.gamescope_git;
     capSysNice = true;
-    #args = ["--prefer-vk-device 10de:2482"];
-    #env = {
-    #  "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
-    #  "DRI_PRIME" = "1";
-    #  "MESA_VK_DEVICE_SELECT" = "pci:10de:2482";
-    #};
+    args = ["--prefer-vk-device 8086:9bc4"];
   };
   #chaotic.steam.extraCompatPackages = with pkgs; [luxtorpeda proton-ge-custom];
   # Chaotic cache

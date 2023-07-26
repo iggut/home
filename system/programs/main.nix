@@ -29,7 +29,6 @@ lib.mkIf config.main.user.enable {
     protontricks # Winetricks for proton prefixes
     rpcs3 # PS3 Emulator
     scanmem # Cheat engine for linux
-    steam # Gaming platform
     steamtinkerlaunch # General tweaks for games
     stremio # Straming platform
     tailscale # VPN with P2P support

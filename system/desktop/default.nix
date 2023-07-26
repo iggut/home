@@ -111,8 +111,10 @@
       # order, they're not set before environment.variables are set, which could
       # cause race conditions.
       MOZ_USE_XINPUT2 = "1";
-      QT_QPA_PLATFORM = "wayland;xcb";
+      QT_QPA_PLATFORM = "wayland";
       NIXOS_OZONE_WL = "1";
+      SDL_VIDEODRIVER = "wayland";
+      XDG_SESSION_TYPE = "wayland";
       XDG_DATA_HOME = "$HOME/.local/share";
     };
 
@@ -134,6 +136,7 @@
       qgnomeplatform # Use GTK theme for QT apps
       sops
       tela-icon-theme # Icon theme
+      egl-wayland
     ];
 
     # Move ~/.Xauthority out of $HOME (setting XAUTHORITY early isn't enough)
