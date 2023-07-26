@@ -16,6 +16,7 @@ lib.mkIf config.main.user.enable {
       "libvirtd"
       "kvm"
       "audio"
+      "disk"
       "networkmanager"
       "video"
       "docker"

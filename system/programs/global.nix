@@ -85,6 +85,7 @@ in {
   users.defaultUserShell = pkgs.zsh; # Use ZSH shell for all users
 
   programs = {
+    seahorse.enable = true;
     _1password = {
       enable = true;
     };
