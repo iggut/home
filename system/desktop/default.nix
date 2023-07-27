@@ -74,7 +74,7 @@
     firewall.enable = false;
   };
 
-  security.sudo.extraConfig = "Defaults pwfeedback"; # Show asterisks when typing sudo password
+  security.sudo.extraConfig = "Defaults pwfeedback"; # Show asterisks when typing password
 
   programs.command-not-found.enable = false;
 
