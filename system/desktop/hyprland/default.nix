@@ -90,8 +90,9 @@
         };
       };
 
-      wayland.windowManager.hyprland.extraConfig =
-        builtins.readFile ../../../hosts/${osConfig.networking.hostName}/hyprland.txt
+      xdg = {userDirs = {enable = true;};};
+      xdg.configFile."hypr/hyprland.conf".text =
+        builtins.readFile ../../../hosts/${config.networking.hostName}/hyprland.txt
         + ''
           # Basic functionalities
           exec-once = gnome-keyring-daemon --start
