@@ -113,8 +113,16 @@
       MOZ_USE_XINPUT2 = "1";
       QT_QPA_PLATFORM = "wayland";
       NIXOS_OZONE_WL = "1";
-      SDL_VIDEODRIVER = "wayland";
+      #SDL_VIDEODRIVER = "wayland";
       XDG_SESSION_TYPE = "wayland";
+      WLR_NO_HARDWARE_CURSORS = "1";
+      XDG_SESSION_DESKTOP = "Hyprland";
+      XDG_CURRENT_DESKTOP = "Hyprland";
+      _JAVA_AWT_WM_NONREPARENTING = "1";
+      CLUTTER_BACKEND = "wayland";
+      GDK_BACKEND = "wayland";
+      MOZ_ENABLE_WAYLAND = "1";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       XDG_DATA_HOME = "$HOME/.local/share";
     };
 
