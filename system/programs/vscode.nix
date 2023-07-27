@@ -7,7 +7,7 @@
 }: {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    package = pkgs.vscodium.fhs;
     mutableExtensionsDir = true;
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix

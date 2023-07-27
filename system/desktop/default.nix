@@ -156,7 +156,6 @@
 
   # Define the default fonts Fira Sans & Jetbrains Mono Nerd Fonts
   fonts = {
-    enableDefaultFonts = false;
     fonts = with pkgs; [
       fira
       (nerdfonts.override {
